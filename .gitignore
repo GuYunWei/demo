@@ -1,0 +1,15 @@
+# Logs
+logs
+*.log
+
+# dependencies
+node_modules
+
+# development
+build
+
+# production
+dist
+
+# misc
+.DS_Store
