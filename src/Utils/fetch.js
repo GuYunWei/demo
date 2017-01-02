@@ -31,7 +31,6 @@ export default class Fetch {
     return fetch(url, body)
       .then(
         (response) => {
-          console.log(response)
           if (response.status === 404) {
             throw '404'
           } else if (response.status >= 500 && response.status < 600) {
@@ -47,17 +46,18 @@ export default class Fetch {
         }
       )
       .then((res) => {
-        if (_DEV_) {
-          console.log('res:', res)
-        }
-        if (!res.success) {
-          message.error(res.msg)
-          if (res.statusCode === 102) {
-            document.cookie = 'user='
-            // hashHistory.push({pathname: '/login'})
-            browserHistory.push({pathname: '/login'})
-          }
-        }
+          console.log(res)
+        // if (_DEV_) {
+        //   console.log('res:', res)
+        // }
+        // if (!res.success) {
+        //   message.error(res.msg)
+        //   if (res.statusCode === 102) {
+        //     document.cookie = 'user='
+        //     // hashHistory.push({pathname: '/login'})
+        //     browserHistory.push({pathname: '/login'})
+        //   }
+        // }
         return res
       })
       .catch((e) => {

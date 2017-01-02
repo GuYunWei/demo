@@ -32,9 +32,9 @@ class Login extends React.Component {
       // 表单验证通过
       this.setState({loading: true})
       Fetch.post(URL.LOGIN, {}).then(res => {
-        if(res.success){
-          console.log(res.data)
-        }
+        // if(res.ok){
+          console.log(res)
+        // }
       })
       // const md5 = crypto.createHash('sha1')
       // md5.update(values.password)
