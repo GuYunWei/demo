@@ -1,4 +1,4 @@
-export const Const = {
+export const Data = {
   // 将阿拉伯数字转为中国数字
   numToStr: [
     '零',

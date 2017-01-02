@@ -1,7 +1,7 @@
 
-const base = 'http://localhost:9999/'
+const base = 'http://rap.taobao.org/mockjs/12450'
 const remoteUrl = {
-  LOGIN: `${base}user/login`,
+  LOGIN: `${base}/login`,
   CFG_INIT: `${base}config/getConfig`    // 获取配置信息
 }
 

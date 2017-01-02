@@ -22,12 +22,12 @@ var webapckConfig = {
     },
     output: {
         path: BUILD_PATH,
-        publicPath: "/demo/build/",
+        publicPath: "/",
         filename: "js/[name].min.js",
         chunkFilename: "js/[name].[chunkhash:5].min.js"
     },
     resolve: {
-        root: 'E:/demo',
+        // root: 'E:/demo',
         extensions: ['', '.js', '.jsx', '.json', '.scss', '.css', '.less'],
         alias: {
             'css': path.resolve(__dirname, './src/styles'),

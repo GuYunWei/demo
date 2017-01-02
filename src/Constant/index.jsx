@@ -6,4 +6,4 @@ export * from './actionTypes'
 export * from './Interface'
 
 // golbal config contants
-export * from './const'
+export * from './consts'

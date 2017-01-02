@@ -5,7 +5,6 @@ import crypto from 'crypto'
 import aside from './images/aside.png'
 import { remoteUrl as URL } from '../../Constant/interface'
 import Fetch from '../../Utils/fetch'
-import data from '../../Utils/mock'
 
 class Login extends React.Component {
   constructor (props) {
@@ -32,7 +31,7 @@ class Login extends React.Component {
       }
       // 表单验证通过
       this.setState({loading: true})
-      Fetch.post('http://g.cn', {}).then(res => {
+      Fetch.post(URL.LOGIN, {}).then(res => {
         if(res.success){
           console.log(res.data)
         }

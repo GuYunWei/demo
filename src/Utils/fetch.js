@@ -18,7 +18,10 @@ export default class Fetch {
       {
         method: 'post',
         mode: "cors",
-        credentials: 'include',
+        // credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
       }
     )
@@ -28,6 +31,7 @@ export default class Fetch {
     return fetch(url, body)
       .then(
         (response) => {
+          console.log(response)
           if (response.status === 404) {
             throw '404'
           } else if (response.status >= 500 && response.status < 600) {
@@ -43,7 +47,6 @@ export default class Fetch {
         }
       )
       .then((res) => {
-        console.log(res.body)
         if (_DEV_) {
           console.log('res:', res)
         }
