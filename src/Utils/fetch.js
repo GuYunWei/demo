@@ -31,12 +31,15 @@ export default class Fetch {
     return fetch(url, body)
       .then(
         (response) => {
-          if (response.status === 404) {
-            throw '404'
-          } else if (response.status >= 500 && response.status < 600) {
-            throw '服务器接口异常'
+          if (response.ok) {
+              return response.json();
+          } else {
+              if (response.status === 404) {
+                throw '404'
+              } else if (response.status >= 500 && response.status < 600) {
+                throw '服务器接口异常'
+              }
           }
-          return response.json()
         },
         () => {
           return {
@@ -46,18 +49,14 @@ export default class Fetch {
         }
       )
       .then((res) => {
-          console.log(res)
-        // if (_DEV_) {
-        //   console.log('res:', res)
-        // }
-        // if (!res.success) {
-        //   message.error(res.msg)
-        //   if (res.statusCode === 102) {
-        //     document.cookie = 'user='
-        //     // hashHistory.push({pathname: '/login'})
-        //     browserHistory.push({pathname: '/login'})
-        //   }
-        // }
+        if (!res.success) {
+          message.error(res.msg)
+          if (res.statusCode === 102) {
+            delete localStorage.token
+            // hashHistory.push({pathname: '/login'})
+            browserHistory.push({pathname: '/login'})
+          }
+        }
         return res
       })
       .catch((e) => {
