@@ -34,10 +34,8 @@ class Login extends React.Component {
       const md5 = crypto.createHash('sha1')
       md5.update(values.password)
 
-      Fetch.post(URL.LOGIN, {
-        username: values.userName,
-        password: md5.digest('hex')
-      }).then(res => {
+      Fetch.get(URL.LOGIN+`?password=${values.userName}&username=${md5.digest('hex')}`)
+        .then(res => {
         // if(res.ok){
           console.log(res)
         // }

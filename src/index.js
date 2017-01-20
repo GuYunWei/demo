@@ -19,7 +19,7 @@ import './Style/helpCenter.less'
 import './Style/saleRecord.less'
 import './Style/allDeposit.less'
 import './Style/applyDeposit.less'
-import './Style/applyRecord.less'
+import './Style/applyRecord.less' 
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)

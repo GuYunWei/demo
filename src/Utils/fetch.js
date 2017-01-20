@@ -8,7 +8,7 @@ import { message } from 'antd'
 export default class Fetch {
   static get (url) {
     return Fetch.connect(url, {
-      credentials: 'include'
+      // credentials: 'include'
     })
   }
 
