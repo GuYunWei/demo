@@ -1,7 +1,6 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 import './less/login.less'
-import crypto from 'crypto'
 import aside from './images/aside.png'
 import { remoteUrl as URL } from '../../Constant/interface'
 import Fetch from '../../Utils/fetch'
@@ -31,10 +30,8 @@ class Login extends React.Component {
       }
       // 表单验证通过
       this.setState({loading: true})
-      const md5 = crypto.createHash('sha1')
-      md5.update(values.password)
 
-      Fetch.get(URL.LOGIN+`?password=${values.userName}&username=${md5.digest('hex')}`)
+      Fetch.get(URL.LOGIN+`?password=${values.userName}&username=${values.password}`)
         .then(res => {
         // if(res.ok){
           console.log(res)
