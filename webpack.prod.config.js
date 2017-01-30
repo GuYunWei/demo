@@ -30,6 +30,7 @@ var webapckConfig = {
         // root: 'E:/demo',
         extensions: ['', '.js', '.jsx', '.json', '.scss', '.css', '.less'],
         alias: {
+            'src': APP_PATH,
             'css': path.resolve(__dirname, './src/css'),
             'img': path.resolve(__dirname, './images')
         }

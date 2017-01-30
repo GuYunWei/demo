@@ -8,14 +8,17 @@ import { message } from 'antd'
 export default class Fetch {
   static get (url) {
     return Fetch.connect(url, {
-      // credentials: 'include'
+      method: 'get',
+      mode: "cors",
+      // credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   }
 
   static post (url, data) {
-    return Fetch.connect(
-      url,
-      {
+    return Fetch.connect(url,{
         method: 'post',
         mode: "cors",
         // credentials: 'include',

@@ -1,9 +1,11 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-const FormItem = Form.Item;
-import './less/login.less'
+import { URL } from 'src/Constant/interface'
+import { Tool } from 'src/Utils/tool'
+import Fetch from 'src/Utils/fetch'
+
 import aside from './images/aside.png'
-import { remoteUrl as URL } from '../../Constant/interface'
-import Fetch from '../../Utils/fetch'
+import './less/login.less'
+const FormItem = Form.Item
 
 class Login extends React.Component {
   constructor (props) {
@@ -30,18 +32,16 @@ class Login extends React.Component {
       }
       // 表单验证通过
       this.setState({loading: true})
+      const postData = {
+        username: values.userName,
+        password: values.password,
+        remember: values.remember
+      } 
 
-      Fetch.get(URL.LOGIN+`?password=${values.userName}&username=${values.password}`)
+      Fetch.get(URL.LOGIN + Tool.paramType(postData))
         .then(res => {
-        // if(res.ok){
           console.log(res)
-        // }
       })
-      // auth.login({
-      //     userName: values.userName,
-      //     password: md5.digest('hex')
-      //   }, values.remember)
-      // })
     });
   }
   render() {

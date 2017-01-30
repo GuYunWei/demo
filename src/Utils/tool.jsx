@@ -1,6 +1,3 @@
-import * as config from './configuration';
-
-const { target } = config;
 const Tool = {};
 
 Tool.paramType = data => {
@@ -178,4 +175,4 @@ Tool.getCookie = function (key) {
 }
 
 
-export { Tool, config }
+export { Tool }
