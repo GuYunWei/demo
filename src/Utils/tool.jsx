@@ -1,8 +1,8 @@
 const Tool = {};
 
 Tool.paramType = data => {
-    data['uid'] = '1';
-    data['token'] = 'pt';
+    // data['uid'] = '1';
+    // data['token'] = 'pt';
     let paramArr = []; 
     let paramStr = ''; 
     for (let attr in data) {
@@ -25,33 +25,33 @@ Tool.ajax = url => {
 }
 
 
-let alertText = document.createElement('div');
-alertText.setAttribute('id','alertText');
+// let alertText = document.createElement('div');
+// alertText.setAttribute('id','alertText');
 
 
-let alertDom = document.createElement('div');
-alertDom.setAttribute('id','alertTip');
-alertDom.appendChild(alertText);
+// let alertDom = document.createElement('div');
+// alertDom.setAttribute('id','alertTip');
+// alertDom.appendChild(alertText);
 
-document.body.appendChild(alertDom);
-let timer = null;
-Tool.alert =  (msg, msg2) => {
-    clearTimeout(timer);
-    if (msg2) {
-        alertText.innerHTML = msg+'<div class="alert_bottom">'+msg2+'</div>';
-    }else{
-        alertText.innerHTML = msg;
-    }
-    alertDom.style.display = 'block';
-    alertDom.onclick = () => {
-        clearTimeout(timer);
-        alertDom.style.display = 'none';
-    }
-    timer = setTimeout( () => {
-       alertDom.style.display = 'none';
-       clearTimeout(timer);
-    },3000)
-}
+// document.body.appendChild(alertDom);
+// let timer = null;
+// Tool.alert =  (msg, msg2) => {
+//     clearTimeout(timer);
+//     if (msg2) {
+//         alertText.innerHTML = msg+'<div class="alert_bottom">'+ msg2 +'</div>';
+//     }else{
+//         alertText.innerHTML = msg;
+//     }
+//     alertDom.style.display = 'block';
+//     alertDom.onclick = () => {
+//         clearTimeout(timer);
+//         alertDom.style.display = 'none';
+//     }
+//     timer = setTimeout( () => {
+//        alertDom.style.display = 'none';
+//        clearTimeout(timer);
+//     },3000)
+// }
 
 Tool.getStyle =  (obj,attr) => { 
     if(obj.currentStyle){ 
@@ -160,9 +160,7 @@ Tool.removeLocalItem = function (key) {
 }
 /**
  * 获取cookie数据
- * 
- * @param {any} key
- * @returns
+ * @param key
  */
 Tool.getCookie = function (key) {
     const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')

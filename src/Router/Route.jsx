@@ -3,6 +3,7 @@ import { Router, Route, Redirect, IndexRoute } from 'react-router';
 import auth from '../Utils/auth.js';
 
 import Login from '../Component/Login/index.jsx';
+import Home from '../Component/Home/index.jsx';
 
 class App extends Component {
     render() {
@@ -11,6 +12,12 @@ class App extends Component {
         );
     }
 }
+
+// const Home = (location, cb) => {
+//     require.ensure([], require => {
+//         cb(null, require('../Component/Home').default)
+//     },'home')
+// }
 
 const chooseProducts = (location, cb) => {
     require.ensure([], require => {
@@ -46,10 +53,6 @@ const applyDeposit = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('../Component/applyDeposit').default)
     },'applyDeposit')
-}
-
-function Home() {
-  return <h1>Hey, I see you are authenticated. Welcome!</h1>
 }
 
 function ErrorPage() {

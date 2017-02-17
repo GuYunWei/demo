@@ -36,7 +36,7 @@ module.exports = {
   },
 
   loggedIn() {
-    return !!localStorage.token
+    return !!localStorage.userdata
   },
 
   onChange() {}

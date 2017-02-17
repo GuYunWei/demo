@@ -53,7 +53,7 @@ export default class Fetch {
       )
       .then((res) => {
         if (!res.success) {
-          message.error(res.msg)
+          message.error(res.errMsg)
           if (res.statusCode === 102) {
             delete localStorage.token
             // hashHistory.push({pathname: '/login'})
