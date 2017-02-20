@@ -53,7 +53,7 @@ Tool.ajax = url => {
 //     },3000)
 // }
 
-Tool.getStyle =  (obj,attr) => { 
+Tool.getStyle = (obj, attr) => { 
     if(obj.currentStyle){ 
         return obj.currentStyle[attr]; 
     } 
@@ -62,7 +62,7 @@ Tool.getStyle =  (obj,attr) => {
     } 
 } 
 
-Tool.nextPage = (dom,currentPage,totalPage,callback,shouldUpdata) => { //分页
+Tool.nextPage = (dom, currentPage, totalPage,callback, shouldUpdata) => { //分页
     let updata = shouldUpdata;
     let page = currentPage;
     let height = 0;

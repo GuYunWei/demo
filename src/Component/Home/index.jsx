@@ -1,6 +1,6 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { hashHistory } from 'react-router'
 import { Row, Col } from 'antd'
 import './less/home.less'

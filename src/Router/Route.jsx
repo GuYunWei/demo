@@ -1,9 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import { Router, Route, Redirect, IndexRoute } from 'react-router';
 import auth from '../Utils/auth.js';
-
 import Login from '../Component/Login/index.jsx';
-import Home from '../Component/Home/index.jsx';
 
 class App extends Component {
     render() {
@@ -13,46 +11,16 @@ class App extends Component {
     }
 }
 
-// const Home = (location, cb) => {
-//     require.ensure([], require => {
-//         cb(null, require('../Component/Home').default)
-//     },'home')
-// }
+const Home = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../Component/Home').default)
+    },'home')
+}
 
 const chooseProducts = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('../Component/chooseProducts').default)
     },'chooseProducts')
-}
-
-const helpCenter = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/helpCenter').default)
-    },'helpCenter')
-}
-
-const saleRecord = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/saleRecord').default)
-    },'saleRecord')
-}
-
-const allDeposit = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/allDeposit').default)
-    },'allDeposit')
-}
-
-const applyRecord = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/applyRecord').default)
-    },'applyRecord')
-}
-
-const applyDeposit = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/applyDeposit').default)
-    },'applyDeposit')
 }
 
 function ErrorPage() {
@@ -70,7 +38,7 @@ const Logout = React.createClass({
 })
 
   function requireAuth(nextState, replace) {
-    if (!auth.loggedIn()) {
+    if (!localStorage.userdata) {
       replace({
         pathname: '/login',
         state: { nextPathname: nextState.location.pathname }
@@ -86,16 +54,10 @@ const Logout = React.createClass({
 
 const RouteConfig = (
     <Route path="/" component={App}>
-        <IndexRoute component={Home} onEnter={requireAuth}/>
+        <IndexRoute component={Login}/>
         <Route path="login" component={Login} onEnter={redirectToHome}/>
         <Route path="logout" component={Logout} />
-        <Route path="home" getComponent={Home} />
-        <Route path="helpCenter" getComponent={helpCenter} />
-        <Route path="saleRecord" getComponent={saleRecord} />
-        <Route path="chooseProducts" getComponent={chooseProducts} />
-        <Route path="allDeposit" getComponent={allDeposit} />
-        <Route path="applyDeposit" getComponent={applyDeposit} />
-        <Route path="applyRecord" getComponent={applyRecord} />
+        <Route path="/home" getComponent={Home} onEnter={requireAuth}/>
         <Route path="error" component={ErrorPage}/>
         <Redirect from='*' to='/' />
     </Route>
