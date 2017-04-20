@@ -64,6 +64,7 @@
     "redux-devtools-log-monitor": "^1.1.1",
     "redux-logger": "^2.7.0",
     "sass-loader": "^4.0.2",
+    "stack-source-map": "^1.0.6",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",

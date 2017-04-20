@@ -80,6 +80,7 @@ var webapckConfig = {
         new ExtractTextPlugin("css/[name].css"),
         new webpack.optimize.UglifyJsPlugin({
             exclude: /\.min\.js($|\?)/i,
+            sourceMap: true,
             output: {
                 screw_ie8: true,
                 comments: false
@@ -88,7 +89,6 @@ var webapckConfig = {
                 screw_ie8: true,
                 warnings: true
             },
-            sourceMap: true,
             mangle: {
                 screw_ie8: true
             },

@@ -17,7 +17,7 @@ var webapckConfig = {
     debug: true,
     devtool: "cheap-module-source-map",
     entry: {
-        index: ['babel-polyfill', APP_FILE],
+        index: ['babel-polyfill', 'stack-source-map/register', APP_FILE],
         vendors: ['babel-polyfill', 'react', 'react-dom', 'react-router', 'redux', 'react-redux']
     },
     output: {

@@ -1,5 +1,5 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import * as actions from 'src/Redux/Action/Index'
+import * as actions from 'src/Redux/Action'
 import { bindActionCreators } from 'redux'
 import { URL } from 'src/Constant/interface'
 import { connect } from 'react-redux'
@@ -48,13 +48,7 @@ class Login extends React.Component {
       .then(res => {
         this.setState({loading: false})
         this.props.setUser(res);
-        if(user.remember){
-          if (user.username && user.password) {
-            localStorage.userdata = JSON.stringify(user)
-          }
-        }else{
-          delete localStorage.userdata
-        }
+        localStorage.userdata = JSON.stringify(user)
         this.context.router.push({
           pathname: this.props.location.query.direct || '/home',
           query: JSON.parse(this.props.location.query.params || '{}')

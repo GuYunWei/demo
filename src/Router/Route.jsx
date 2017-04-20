@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { Router, Route, Redirect, IndexRoute } from 'react-router';
-import auth from '../Utils/auth.js';
-import Login from '../Component/Login/index.jsx';
+import Login from '../Component/Login';
 
 class App extends Component {
     render() {
@@ -17,19 +16,13 @@ const Home = (location, cb) => {
     },'home')
 }
 
-const chooseProducts = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../Component/chooseProducts').default)
-    },'chooseProducts')
-}
-
 function ErrorPage() {
   return <h1>Oh no! Your auth failed!</h1>
 }
 
 const Logout = React.createClass({
   componentDidMount() {
-    auth.logout()
+    // auth.logout()
   },
 
   render() {
@@ -47,7 +40,7 @@ const Logout = React.createClass({
   }
 
   function redirectToHome(nextState, replace) {
-    if (auth.loggedIn()) {
+    if (localStorage.userdata && localStorage.userdata.remember) {
       replace('/home')
     }
   }
